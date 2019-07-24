@@ -20,21 +20,21 @@ public class SendEmail {
 	}
 	
 
-	public void sendAsHotmail() {
+	public void send() {
 		// change accordingly 
 		String to = email;  
 
 		// change accordingly 
-		String from = "noreply@novipsych.com";  
+		String from = "From this name";  
 
-		// or IP address 
-		String host = "smtp.bizmail.yahoo.com";  
+		// mail server of service
+		String host = "smtp.mail.com";  
 
-		// mail id 
-		final String username = "noreply@novipsych.com";
+		// email id 
+		final String username = "username@email.com";
 
 		// correct password for email id 
-		final String password = "oilhyqadwgnqfkpe";  
+		final String password = "password";  
 
 		
 		System.out.println("TLSEmail Start"); 
@@ -82,20 +82,22 @@ public class SendEmail {
 
 			message.addRecipient(Message.RecipientType.TO,  
 					new InternetAddress(to)); 
-			message.setSubject("NO REPLY - Welcome to The Psychiatry and Psychology Center in Northville"); 
-			message.setText("here ill send their unique ID and other stuff"); 
+			message.setSubject("subject of the message"); 
+			message.setText("message"); 
 
 			// Send message 
 			Transport.send(message); 
-			System.out.println("Yo it has been sent.."); 
+			System.out.println("Email sent"); 
 		} 
 		catch (MessagingException mex) { 
 			mex.printStackTrace(); 
 		} 
 	}
 	
+
+	// test
 	public static void main(String args[]) {
-		SendEmail email = new SendEmail("contact@novipsych.com");
-		email.sendAsHotmail();
+		SendEmail email = new SendEmail("destination@email.com");
+		email.send();
 	}
 }
