@@ -1,3 +1,5 @@
 bin/*
-activation.jar
-javax.mail.jar
+.settings/*
+*.jar
+
+
